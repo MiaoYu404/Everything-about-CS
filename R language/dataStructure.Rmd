@@ -39,5 +39,70 @@ mymatrix[1,1:2]
 
 ```{r}
 d <- c(1, 2, 3, 4)
-
+e <- c(TRUE, TRUE, TRUE, FALSE)
+f <- c("red", "white", "red", NA)
+mydata <- data.frame(d, e, f)     # 所有向量行数必须相等
+names(mydata) <- c("ID", "Passed", "Color")
+print(mydata)
 ```
+
+-   `names()` 设置列名称
+
+-   `data.frames()` 中所有向量的行数必须相等；
+
+```{r}
+mydata[1:2]
+mydata[c("ID", "Passed")]
+mydata$ID
+```
+
+## List 列表
+
+an **ordered** collection of objects.
+
+```{r}
+w <- list(name = "student 1", q1 = c(1:2), math = "GOOD")
+v <- list(name = "student 2", english = 60, math = 90)
+rsl = list(w, v)
+rsl
+```
+
+## Input and Processing
+
+### import data
+
+```{r}
+mydata <- read.csv("", header = TRUE, sep = ",")
+```
+
+### export data
+
+```{r}
+write.table(mydata, "", sep = "\t")
+```
+
+## Viewing Data
+
+```{r}
+ls()
+names(mydata)
+str(mydata)
+dim(mydata)
+```
+
+```{r}
+class(mydata)
+mydata
+head(mydata, n = 2)
+tail(mydata, n = 1)
+```
+
+-   `class(object)` class of a object
+
+<!-- -->
+
+-   `head(object, n)` print first 2 row of data
+
+-   `tail(object, n)` print last 1 row of data
+
+## missing data
