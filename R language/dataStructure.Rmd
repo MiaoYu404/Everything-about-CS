@@ -1,0 +1,43 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+运行：按钮 / *Cmd+Shift+Enter*.
+
+```{r}
+plot(cars)
+```
+
+插入一行代码块：按钮 / *Cmd+Option+I*.
+
+## matrix() 新建一个矩阵
+
+```{r}
+vector <- c(1, 2, 3, 4) 
+nameRow = c("row1", "row2")
+nameCol = c("col1", "col2")
+mymatrix <- matrix(vector, 2, 2, TRUE, dimnames = list(nameRow, nameCol))  # matrix(data, ncol, nrow, byrow);
+print(mymatrix)
+```
+
+difference between `byrow = FALSE` and `byrow = TRUE`
+
+-   `TRUE`: 1 3 2 4
+
+-   `FALSE`: 1 2 3 4
+
+### get value of a matrix
+
+```{r}
+mymatrix
+mymatrix[2,2]
+mymatrix[1,1:2]
+```
+
+## Dataframes
+
+```{r}
+d <- c(1, 2, 3, 4)
+
+```

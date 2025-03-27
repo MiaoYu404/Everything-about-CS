@@ -19,14 +19,14 @@
 
 ### Definition
 - A **regular language 正则语言** is a formal language that can be recognized by a **finite automaton 有穷自动机** (FA) or described by a **regular expression 正则表达式** (RE).
-- Recognized by: Deterministic Finite Automata (DFAs), Nondeterministic Finite Automata (NFAs), or ε-NFAs.
+- Recognized 识别 by: Deterministic Finite Automata (DFAs), Nondeterministic Finite Automata (NFAs), or ε-NFAs.
 - Examples:
   - L = {w ∈ {0, 1}* | w ends in 01}
   - L = {w ∈ {0, 1}* | w has at least one 0}
 
-### Finite Automata
+### Finite Automata 有穷自动机
 #### Deterministic Finite Automata (DFA)
-- **Components**: 
+- **Components 形式化 DFA**: 
   - Q: Finite set of states
   - Σ: Input alphabet
   - δ: Transition function (δ: Q × Σ → Q)
@@ -43,6 +43,18 @@
   - δ(q₂, 0) = q₁, δ(q₂, 1) = q₀
 - q₀ = start state, F = {q₂}
 - Accepts: "01", "001", "101", etc.
+
+**Proofs of Set Equivalence** we need to prove that $S\subseteq T$ and $T\subseteq S$.
+
+**Example of a Regular Language 正则语言**
+L3 = { w | w in {0,1}* and w, viewed as a binary integer is divisible by 23}
+The DFA:
+- 23 states, named 0, 1,…,22.
+- Correspond to the 23 remainders of an integer divided by 23.
+- Start and only final state is 0.
+If string w represents integer i, then assume δ(0, w) = i%23. Then w0 represents integer 2i, so we want δ(i%23, 0) = (2i)%23.
+Similarly: w1 represents 2i+1, so we want δ(i%23, 1) = (2i+1)%23.
+- Example: δ(15,0) = 30%23 = 7; δ(11,1) = 23%23 = 0.
 
 #### Nondeterministic Finite Automata (NFA)
 - **Components**: Same as DFA, but δ: Q × Σ → 2^Q (set of possible states).
